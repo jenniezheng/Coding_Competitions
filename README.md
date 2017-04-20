@@ -1,1 +1,2 @@
-## Random Code I made during my free time 
+### Random Code
+Code I wrote during my free time. Most originate from hackerrank prompts.
