@@ -1,0 +1,42 @@
+#!/bin/bash
+
+function performChecks {
+    #mandatory file name argument, optional second argument to specify c or cpp
+    #default uses cpp
+    [[ $# -lt 1 ]] && echo "Error: require at least 1 argument. Example: filename.cpp" && exit 1
+    for file in $@; do
+	[[ ! -f $file ]] && echo "Error: cannot find file $FILE" && exit 2
+    done
+}
+
+
+function findTypeIndex {
+    for (( i=((${#FileName} - 1 )); i>=0; i-- )); do
+	if [[ ${FileName:$i:1} == "." ]]; then
+	    echo $i
+	    return 0
+	fi
+    done
+    echo -1
+    return 0
+}
+
+FileName=$1
+performChecks "${@:1}"
+index=$(findTypeIndex $1)
+name=${FileName:0:index}
+ending=${FileName:(( index + 1 )):(( ${#FileName} - index ))}
+TemplateName="/home/Jbunie/Templates/template.$ending"
+
+if [[ $ending == "cpp" ]]; then
+    g++ -Wall -o $name $@
+elif [[ $ending == "c" ]]; then
+    g32 -o $name $@
+else
+    echo "Error: file ending not recognized."
+    exit 3
+fi
+
+[[ $? -ne 0 ]] && exit 3
+./$name
+

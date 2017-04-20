@@ -1,0 +1,30 @@
+#!/bin/bash
+
+function performChecks {
+    #mandatory file name argument, optional second argument to specify c or cpp
+    #default uses cpp
+    [[ $# -ne 1 ]] && echo "Error: require exactly 1 argument: ex: filename.cpp" && exit 1
+    FileName=$1 
+    [[ -f $FileName ]] && echo "Error: file $FileName already exists!" && exit 2
+}
+
+function findTypeIndex { 
+    for (( i=((${#FileName} - 1 )); i>=0; i-- )); do
+	if [[ ${FileName:$i:1} == "." ]]; then
+	    echo $i
+	    return 0
+	fi
+    done
+    echo -1
+    return 0
+}
+
+performChecks "${@:1}"
+index=$(findTypeIndex $1)
+ending=${FileName:(( index + 1 )):(( ${#FileName} - index ))}
+TemplateName="/home/Jbunie/Templates/template.$ending"
+[[ ! -f $TemplateName ]] && echo "Error: template $TemplateName does not exist!" && exit 3
+cp $TemplateName ./$FileName
+emacs ./$FileName &
+
+

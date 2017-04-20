@@ -1,0 +1,45 @@
+#!/bin/bash
+# my 100th script
+
+function getNumber {
+   while : ; do  
+      read X
+      if [[ ! -n "$X" ]]; then 
+         echo Bye
+         exit 
+      fi
+      echo $X | grep "[^0-9]" > /dev/null 2>&1
+      if [[ "$?" -eq "0" ]]; then
+           echo "Must be a number!"
+      elif [[ "$X" -gt $MAX ]] || [[ "$X" -eq 0 ]]; then 
+           echo "Must be in bounds of 1 and ${MAX}!"
+      else
+           break
+      fi      
+   done
+}
+
+function playGame {
+ANS=$((( RANDOM % $MAX )+1 ))
+echo Hint: ANS is $ANS
+echo "Give a number from 1 to $MAX! Return to quit."
+while : ; do
+    getNumber 
+    if [[ $X -eq $ANS ]]; then
+      echo "Correct! You win!" 
+      break;  
+   elif [[ $X -gt $ANS ]]; then
+      echo "Your answer is too big!"
+   else 
+      echo "Your answer is too small!";
+   fi 
+done 
+}
+
+while : ; do
+  echo "Game size? " 
+  MAX=10000
+  getNumber
+  MAX=$X 
+  playGame
+done 
