@@ -1,4 +1,4 @@
-### Random Code
-A set of code I wrote during my free time to familiarize myself with new cs languages and to learn algorithms.
+### Code
+A collection of code I wrote.
 
-Most of this code originates from prompts on Hackerrank and CodeForces. 
+Some are for various coding challenges. Others are simply practice. 
