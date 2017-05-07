@@ -1,6 +1,5 @@
 #Project Euler #165: Intersections
-
-checkWithMathPlot=True;
+from decimal import *
 
 def BlumBlumShubPseudoGenerate(targetNumSegments):
 	#create pseudorandom points
@@ -9,7 +8,7 @@ def BlumBlumShubPseudoGenerate(targetNumSegments):
 	sPrev=290797;
 	while(pointsNeeded>0):
 		sPrev=(sPrev*sPrev)%50515093
-		randoms.append(sPrev%500)
+		randoms.append(Decimal(sPrev%500))
 		pointsNeeded-=1
 	#convert points into segments
 	pointIndex=0
@@ -30,7 +29,9 @@ def getIntersectionPoint(segment1, segment2):
 	y3=segment2[1]
 	y4=segment2[3]
 
-	if(x1==x2 or y1==y2 or x3==x4 or y3==y4):
+	if(x1==x3 or x1==x4 or x2==x3 or x2==x4 
+		or y1==y3 or y1==y4 or y2==y3 or y2==y4
+		or x2==x1 or x4==x3):
 		return None
 	slope1=(y2-y1)/(x2-x1)
 	inter1=y2-slope1*x2
@@ -61,7 +62,7 @@ def collectIntersectionPoints(segmentsArr):
 			seg1=segmentsArr[num]
 			seg2=segmentsArr[num2]
 			point=getIntersectionPoint(seg1, seg2)
-			if (point!=None and point not in uniquePoints):
+			if (point!=None):
 				uniquePoints.add(point)
 	return uniquePoints
 	
@@ -70,6 +71,7 @@ def main():
 	segsArr=BlumBlumShubPseudoGenerate(numSegments)
 	uniquePointsArr=collectIntersectionPoints(segsArr)
 	print(len(uniquePointsArr))
+	checkWithMathPlot=True
 	if checkWithMathPlot:
 		import matplotlib.pyplot as plt
 
@@ -83,5 +85,4 @@ def main():
 			plt.plot(point[0], point[1], marker='o', markersize=2, color="red")
 		plt.show()
 
-if __name__ == "__main__":
-    main()
+main()
