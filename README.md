@@ -1,4 +1,7 @@
 ### Code
-A collection of code I wrote.
+A collection of code I wrote for coding challenges and practice. 
 
-Some are for various coding challenges. Others are simply practice. 
+#### Favorite languages:
+ - C++ for pointers and speed
+ - Python for matplotlib, bigInts, and convenient data structure outputting
+
