@@ -95,7 +95,6 @@ int main(){
                 }
                 revvisited[connectOne].clear();
             }
-               
         }
 
         set<int> uniqueTrees;
