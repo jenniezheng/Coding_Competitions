@@ -29,7 +29,7 @@ def getIntersectionPoint(segment1, segment2):
 	y3=segment2[1]
 	y4=segment2[3]
 
-	if(x1==x3 or x1==x4 or x2==x3 or x2==x4 
+	if(x1==x3 or x1==x4 or x2==x3 or x2==x4
 		or y1==y3 or y1==y4 or y2==y3 or y2==y4
 		or x2==x1 or x4==x3):
 		return None
@@ -65,7 +65,7 @@ def collectIntersectionPoints(segmentsArr):
 			if (point!=None):
 				uniquePoints.add(point)
 	return uniquePoints
-	
+
 def main():
 	numSegments=int(input())
 	segsArr=BlumBlumShubPseudoGenerate(numSegments)

@@ -3,7 +3,7 @@ import sys
 sys.setrecursionlimit(10000)
 #maps number stones in pile to # moves for pile
 memo={}
-#ways allowed to divide a pile 
+#ways allowed to divide a pile
 divide_arr=[]
 #maps number of stones in pile to pile count
 
