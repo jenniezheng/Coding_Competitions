@@ -16,6 +16,6 @@ update:
 	git add *
 	echo -n "Message: "
 	read msg; \
-	echo "git commit -am" $msg; \
-	git commit -am "$msg";
+	echo "git commit -am" $$msg; \
+	git commit -am "$$msg";
 	git push origin master
