@@ -1,4 +1,4 @@
-#run like make script="a.py"
+#Example: make script="a.py"
 default:
 	make run;
 	make watch --silent;
@@ -6,13 +6,15 @@ default:
 watch:
 	while true; do \
 		make run ; \
-		inotifywait -qre close_write . >> /dev/null; \
+		#wait for changes to script
+		inotifywait -qre modify $(script) >> /dev/null; \
     done
 
 run:
+	#if running c++, then gcc compile and then run
 	python3 $(script);
 
-update:
+push:
 	git add *
 	echo -n "Message: "
 	read msg; \
