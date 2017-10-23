@@ -12,12 +12,5 @@ watch:
 
 run:
 	#if running c++, then gcc compile and then run
-	python3 $(script);
+	utop $(script);
 
-push:
-	git add *
-	echo -n "Message: "
-	read msg; \
-	echo "git commit -am" $$msg; \
-	git commit -am "$$msg";
-	git push origin master
