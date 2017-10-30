@@ -1,0 +1,13 @@
+2016-02, clicks, 181, impressions, 155, retweets, 1123
+2016-01, clicks, 192, favorites, 557, retweets, 1809
+2015-12, favorites, 729, follows, 995, retweets, 462
+2015-11, app_installs, 513, clicks, 661, impressions, 992, retweets, 433
+2015-10, app_installs, 335, clicks, 908, follows, 898, impressions, 1364, retweets, 319
+2015-09, app_installs, 415, favorites, 947, follows, 581, impressions, 811
+2015-08, app_installs, 102, impressions, 146
+2015-07, clicks, 612, impressions, 803
+2015-06, app_installs, 185, clicks, 535, favorites, 876, retweets, 451
+2015-05, app_installs, 875, clicks, 781, favorites, 812, follows, 545, retweets, 43
+2015-04, app_installs, 3, clicks, 858, follows, 948, impressions, 353
+2015-03, clicks, 929, follows, 590
+2015-02, favorites, 616, impressions, 918

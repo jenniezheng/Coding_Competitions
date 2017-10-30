@@ -5,7 +5,9 @@ fi
 
 script=$1
 while true; do
-    python3 $script < test.txt
+    g++ -std=c++0x $script
+    ./a.out
+    #python3 $1 < test.txt
     #wait for changes to script
-    inotifywait -qe modify $script >> /dev/null;
+    inotifywait -qe modify $script test.txt >> /dev/null;
 done

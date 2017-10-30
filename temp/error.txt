@@ -1,0 +1,1 @@
+./watch.sh: line 13: 31344 Segmentation fault      (core dumped) ./a.out < test.txt
